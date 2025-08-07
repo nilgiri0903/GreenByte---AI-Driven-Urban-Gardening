@@ -70,6 +70,9 @@ Install the required Dependencies
 ```bash
 python app.py
 ```
-
+4.Access it in your browser
+```bash
+Go to http://127.0.0.1:5000/
+```
 
 
