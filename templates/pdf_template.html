@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        h2 { text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>🌿 Plant Growth Report</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Plant Name</th>
+            <th>Log Date</th>
+            <th>Date Planted</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Height (cm)</th>
+            <th>Notes</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td> <!-- id -->
+            <td>{{ row[1] }}</td> <!-- plant_name -->
+            <td>{{ row[2] }}</td> <!-- log_date -->
+            <td>{{ row[3] }}</td> <!-- date_planted -->
+            <td>{{ row[4] }}</td> <!-- date -->
+            <td>{{ row[5] }}</td> <!-- status -->
+            <td>{{ row[6] }}</td> <!-- height_cm -->
+            <td>{{ row[7] }}</td> <!-- notes -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

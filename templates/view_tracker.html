@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plant Growth Logs</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>📋 All Plant Growth Logs</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Plant Name</th>
+            <th>Date Planted</th>
+            <th>Height (cm)</th>
+            <th>Status</th>
+            <th>Notes</th>
+        </tr>
+        {% for row in rows %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+    <a href="/add_tracker">➕ Add Another</a>
+    <br><br>
+    <a href="/download_pdf">⬇️ Download PDF Report</a>
+    <a href="/plant-diary" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        📔 Open Plant Diary
+    </a>
+    <a href="/care_tips" style="display: inline-block; background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+        🌱 View Care Tips
+    </a>
+
+
+</body>
+</html>

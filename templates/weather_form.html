@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather & Crop Suggestion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>☁️ Enter City for Crop Suggestion</h2>
+    <form method="POST">
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" required>
+        <button type="submit">Suggest Crop</button>
+    </form>
+</body>
+</html>

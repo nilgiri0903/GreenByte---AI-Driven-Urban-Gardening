@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Growth Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>📈 Plant Growth Over Time</h2>
+
+    <!-- Growth Chart -->
+    <canvas id="growthChart" width="400" height="200"></canvas>
+
+    <!-- Chart Rendering Script -->
+    <script>
+        const labels = {{ records|map(attribute='log_date')|list|tojson }};
+        const heights = {{ records|map(attribute='height_cm')|list|tojson }};
+        const plantName = "{{ records[0]['plant_name'] if records else '' }}";
+
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels.reverse(),
+                datasets: [{
+                    label: plantName + ' Growth Over Time',
+                    data: heights.reverse(),
+                    borderColor: 'green',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: { display: true, text: 'Height (cm)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Log Date' }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <br><br>
+    
+    <a href="/add_tracker">➕ Add New Log</a>
+    <br><br>
+    <a href="/view_tracker">📋 View Logs Table</a>
+</body>
+</html>

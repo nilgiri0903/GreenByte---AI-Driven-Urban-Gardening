@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Growth Log</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>➕ Log New Plant Growth</h2>
+
+    <form method="POST" action="/add_tracker">
+        Plant Name: <input type="text" name="plant_name" required><br><br>
+        Date Planted: <input type="date" name="date_planted" required><br><br>
+        Height (cm): <input type="number" name="height_cm" step="0.1" required><br><br>
+
+        Status:
+        <select name="status">
+            <option>Sprouting</option>
+            <option>Growing</option>
+            <option>Flowering</option>
+            <option>Harvest Ready</option>
+        </select><br><br>
+
+        Notes:<br>
+        <textarea name="notes" rows="4" cols="40"></textarea><br><br>
+
+        <input type="submit" value="Save Info">
+    </form>
+
+    <br><br>
+    <a href="/view_tracker">📋 View Logs Table</a>
+    <br><br>
+    <a href="/download_pdf">⬇️ Download Report</a>
+</body>
+</html>

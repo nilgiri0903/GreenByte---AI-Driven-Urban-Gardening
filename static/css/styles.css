@@ -1,0 +1,23 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f2fff2;
+    padding: 20px;
+}
+
+h2, h3 {
+    color: #2e7d32;
+}
+
+form, ul {
+    background-color: #e8f5e9;
+    padding: 15px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+    display: block;
+    padding: 5px;
+    width: 100%;
+}

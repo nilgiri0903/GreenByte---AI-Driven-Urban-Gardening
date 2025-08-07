@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plant Diary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f3f8f2;
+        }
+        h2, h3 {
+            color: #2e7d32;
+        }
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            resize: vertical;
+        }
+        input[type="file"], input[type="submit"] {
+            margin-top: 10px;
+        }
+        .entry {
+            background-color: #ffffff;
+            padding: 15px;
+            border-left: 6px solid #66bb6a;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        .entry img {
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+        .timestamp {
+            font-size: 0.9em;
+            color: #888;
+        }
+        .flash-message {
+            color: green;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>📔 Plant Growth Diary</h2>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/plant-diary" enctype="multipart/form-data">
+        <label><strong>📷 Upload Plant Image:</strong></label><br>
+        <input type="file" name="image" required><br><br>
+
+        <label><strong>📝 Write Note:</strong></label><br>
+        <textarea name="note" rows="4" placeholder="e.g., Watered the plant today, added fertilizer..." required></textarea><br>
+
+        <input type="submit" value="Add Diary Entry">
+    </form>
+
+    <h3>🌱 Growth Timeline</h3>
+
+    {% for entry in entries %}
+        <div class="entry">
+            <img src="{{ url_for('static', filename=entry.image_path.split('static/')[1]) }}">
+            <p><strong>Note:</strong> {{ entry.note }}</p>
+            <p class="timestamp">📅 {{ entry.created_at }}</p>
+        </div>
+    {% else %}
+        <p>No diary entries found yet.</p>
+    {% endfor %}
+
+</body>
+</html>

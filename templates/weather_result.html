@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Suggested Crop</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h2>🌍 Weather in {{ city }} analyzed</h2>
+    <div class="result">
+        <strong>Recommended Crop:</strong> {{ crop }}
+    </div>
+    <br>
+    <a href="/weather">
+        <button>Try Another City</button>
+    </a>
+</body>
+</html>
