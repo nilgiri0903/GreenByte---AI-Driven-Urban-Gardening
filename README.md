@@ -1,26 +1,43 @@
-``bash
+
 📘 GreenByte – AI-Powered Gardening Assistant 🌱
+
 GreenByte is an intelligent gardening assistant that leverages AI and machine learning to help users with smart crop planning, disease detection, and growth tracking. It is designed to promote efficient farming practices, especially for small-scale and home-based gardeners.
+
 🧩 Features
+
 🌾 Crop Recommendation
+
 Suggests the most suitable crops to grow based on soil, weather, and environmental conditions.
+
 🌿 Crop Relationship Detection
+
 Uses graph-based analysis to understand compatibility and interdependence between crops (e.g., companion planting).
+
 🌱 Plant Disease Detection
+
 Upload an image of a plant, and the system detects diseases using a trained deep learning model.
+
 📈 Growth Tracker Log
+
 Tracks the development and health of plants over time using logs and visual indicators.
-```
-```bash
+
+
 🛠️ Tech Stack
+
 Frontend: HTML, CSS, JavaScript
+
 Backend: Python (Flask)
+
 AI/ML:
+
 Plant Disease Detection Model (Trained on image datasets)
+
 Crop Recommendation using rule-based or ML logic
+
 Crop Relationship Detection using NetworkX (graph theory)
+
 Database: MySQL
-```
+
 
 📁 Project Structure
 ```bash
